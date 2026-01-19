@@ -1,5 +1,0 @@
-# Exemplo de configuração - preencha com seus dados locais
-driver.name=com.microsoft.sqlserver.jdbc.SQLServerDriver
-url=jdbc:sqlserver://localhost:1433;databaseName=SEU_BANCO
-user=USUARIO
-password=SENHA
