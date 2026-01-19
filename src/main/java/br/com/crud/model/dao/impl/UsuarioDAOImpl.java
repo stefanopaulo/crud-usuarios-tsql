@@ -11,9 +11,14 @@ import br.com.crud.exceptions.DBException;
 import br.com.crud.model.dao.UsuarioDAO;
 import br.com.crud.model.entities.Usuario;
 import br.com.crud.model.enums.StatusUsuario;
-import br.com.crud.util.Conexao;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
+
+	private Connection conn;
+
+	UsuarioDAOImpl(Connection conn) {
+		this.conn = conn;
+	}
 
 	@Override
 	public List<Usuario> buscarTodos() {
@@ -21,9 +26,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 		List<Usuario> listusuarios = new ArrayList<Usuario>();
 
-		try (Connection conn = Conexao.getConexao();
-				CallableStatement cs = conn.prepareCall(sql);
-				ResultSet rs = cs.executeQuery()) {
+		try (CallableStatement cs = conn.prepareCall(sql); ResultSet rs = cs.executeQuery()) {
 
 			while (rs.next()) {
 				Usuario usuario = new Usuario();
@@ -49,7 +52,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 		Usuario usuario = null;
 
-		try (Connection conn = Conexao.getConexao(); CallableStatement cs = conn.prepareCall(sql)) {
+		try (CallableStatement cs = conn.prepareCall(sql)) {
 
 			cs.setInt(1, idusuario);
 
@@ -75,7 +78,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public void inserir(Usuario usuario) {
 		String sql = "{ call sp_inserir_usuario(?, ?, ?) }";
 
-		try (Connection conn = Conexao.getConexao(); CallableStatement cs = conn.prepareCall(sql)) {
+		try (CallableStatement cs = conn.prepareCall(sql)) {
 
 			cs.setString(1, usuario.getNome());
 			cs.setString(2, usuario.getEmail());
@@ -96,8 +99,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public void atualizar(Usuario usuario) {
 		String sql = "{ call sp_atualizar_usuario(?, ?, ?, ?) }";
-				
-		try (Connection conn = Conexao.getConexao(); CallableStatement cs = conn.prepareCall(sql)) {
+
+		try (CallableStatement cs = conn.prepareCall(sql)) {
 
 			cs.setInt(1, usuario.getIdusuario());
 			cs.setString(2, usuario.getNome());
@@ -113,8 +116,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public void deletar(int idusuario) {
 		String sql = "{ call sp_desativar_usuario(?) }";
-		
-		try (Connection conn = Conexao.getConexao(); CallableStatement cs = conn.prepareCall(sql)) {
+
+		try (CallableStatement cs = conn.prepareCall(sql)) {
 
 			cs.setInt(1, idusuario);
 

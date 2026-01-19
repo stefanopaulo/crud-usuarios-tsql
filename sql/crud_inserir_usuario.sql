@@ -24,6 +24,8 @@ BEGIN
     DECLARE @v_novo_id INT = SCOPE_IDENTITY();
 
     COMMIT TRANSACTION
+    
+    SELECT 'Sucesso' AS Status, 'Usuário ' + @p_nome + ' inserido com sucesso!' AS Mensagem, @v_novo_id AS novoId;
 
   END TRY
   BEGIN CATCH
