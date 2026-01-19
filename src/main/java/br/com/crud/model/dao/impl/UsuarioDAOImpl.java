@@ -127,4 +127,34 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
+	@Override
+	public Usuario autenticar(String email, String senha) {
+		String sql = "{ call sp_validar_login(?, ?) }";
+		
+		Usuario usuario = null;
+		
+		try (CallableStatement cs = conn.prepareCall(sql)) {
+
+			cs.setString(1, email);
+			cs.setString(2, senha);
+			
+			try (ResultSet rs = cs.executeQuery()) {
+				
+				if (rs.next()) {
+					usuario = new Usuario();
+					usuario.setIdusuario(rs.getInt("idusuario"));
+					usuario.setNome(rs.getString("nome"));
+					usuario.setEmail(rs.getString("email"));
+					usuario.setStatus(StatusUsuario.valueOf(rs.getString("status")));
+					usuario.setEhAdmin(rs.getBoolean("eh_admin"));
+				}
+			}
+			
+		} catch (SQLException e) {
+			throw new DBException("Erro ao deletar usuário. Causa: " + e.getMessage());
+		}
+		
+		return usuario;
+	}
+
 }

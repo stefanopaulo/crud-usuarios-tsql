@@ -30,7 +30,7 @@ function validarCampos(form) {
   const inputs = form.querySelectorAll("input");
   inputs.forEach((input) => input.classList.remove("campo-erro"));
 
-  if (inputNome.value.trim().length === 0) {
+  if (inputNome && inputNome.value.trim().length === 0) {
     erroNome.textContent = "Informe o nome do usuário *";
     inputNome.classList.add("campo-erro");
     formularioValido = false;

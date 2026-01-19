@@ -14,29 +14,34 @@ pageEncoding="UTF-8"%>
           <th>E-mail</th>
           <th>Data de criação</th>
           <th>Data última atualização</th>
-          <th>Ações</th>
+          <c:if test="${sessionScope.usuarioLogado.ehAdmin}">
+            <th>Ações</th>
+          </c:if>
         </tr>
       </thead>
 
       <tbody>
         <c:forEach var="u" items="${usuarios}">
-          <tr>
-            <td>${u.nome}</td>
-            <td>${u.email}</td>
-            <td>${u.dataCriacao}</td>
-            <td>${u.dataAtualizacao}</td>
+          <c:if test="${u.idusuario != sessionScope.usuarioLogado.idusuario}">
+            <tr>
+              <td>${u.nome}</td>
+              <td>${u.email}</td>
+              <td>${u.dataCriacao}</td>
+              <td>${u.dataAtualizacao}</td>
 
-            <td>
-              <div class="acoes">
-                <a href="editarUsuario?idusuario=${u.idusuario}" class="btn-editar">Editar</a>
-
-                <form action="deletarUsuario" method="post" class="form-delete">
-                  <input type="hidden" name="idusuario" value="${u.idusuario}" />
-                  <input type="submit" class="btn-excluir" value="Excluir" />
-                </form>
-              </div>
-            </td>
-          </tr>
+              <c:if test="${sessionScope.usuarioLogado.ehAdmin}">
+                <td>
+                  <div class="acoes">
+                    <a href="editarUsuario?idusuario=${u.idusuario}" class="btn-editar">Editar</a>
+                    <form action="deletarUsuario" method="post" class="form-delete">
+                      <input type="hidden" name="idusuario" value="${u.idusuario}" />
+                      <input type="submit" class="btn-excluir" value="Excluir" />
+                    </form>
+                  </div>
+                </td>
+              </c:if>
+            </tr>
+          </c:if>
         </c:forEach>
       </tbody>
     </table>

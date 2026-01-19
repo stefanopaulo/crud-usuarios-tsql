@@ -10,4 +10,5 @@ public interface UsuarioDAO {
 	void inserir(Usuario usuario);
 	void atualizar(Usuario usuario);
 	void deletar(int idusuario);
+	Usuario autenticar(String email, String senha);
 }
