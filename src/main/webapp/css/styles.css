@@ -1,0 +1,335 @@
+/* GERAL */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #334155;
+  background-color: #f8fafc;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+  color: #3b82f6;
+}
+
+/* FIM GERAL */
+
+/* CABEÇALHO */
+
+#cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #1e293b;
+}
+
+#cabecalho h1 {
+  color: #fdfdfd;
+}
+
+#nav-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#nav-header a {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+#nav-header #link-cadastrar:hover {
+  border-bottom: 1px solid #3b82f6;
+  font-weight: bold;
+}
+
+#nav-header #btn-sair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #ef4444;
+  color: #fff;
+  font-weight: bold;
+  width: 85px;
+  max-height: 50px;
+  border-radius: 8px;
+  transition: 0.5s;
+}
+
+/* FIM CABEÇALHO */
+
+#nav-header #btn-sair:hover {
+  background-color: #dc2626;
+}
+
+/* RODAPÉ */
+
+#rodape {
+  text-align: center;
+  padding: 2rem;
+  color: #fdfdfd;
+  background-color: #1e293b;
+}
+
+/* FIM RODAPÉ */
+
+/* PÁGINA INICIAL */
+
+/* FIM PÁGINA INICIAL */
+
+/* PÁGINA LISTAR USUÁRIOS */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container h2 {
+  margin-bottom: 1rem;
+}
+
+#container-table {
+  border-collapse: collapse;
+}
+
+#container-table tr,
+#container-table th,
+#container-table td {
+  border: 1px solid #334155;
+}
+
+#container-table th {
+  padding: 0.8rem 0;
+  background-color: #1e293b;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#container-table td {
+  padding: 0.5rem 0;
+}
+
+.acoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-editar,
+.btn-excluir {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  width: 85px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fdfdfd;
+}
+
+.btn-editar {
+  background-color: #f59e0b;
+}
+
+.btn-excluir {
+  background-color: #ef4444;
+  border: none;
+  cursor: pointer;
+}
+
+/* FIM PÁGINA LISTAR USUÁRIO */
+
+/* PÁGINA CADASTRAR USUÁRIO */
+
+.form-usuario {
+  text-align: left;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.form-usuario label {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.form-usuario input {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-salvar-usuario {
+  cursor: pointer;
+  background-color: #10b981;
+  color: #fdfdfd;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 5px solid #10b981;
+  transition: 0.5s;
+}
+
+.btn-salvar-usuario:hover {
+  background-color: #fff;
+  color: #10b981;
+}
+
+.btn-cancelar {
+  color: #ef4444;
+}
+
+/* FIM PÁGINA CADASTRAR USUÁRIO */
+
+/* MODAL CONFIRMAR EXCLUSÃO */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #334155;
+  margin: 15% auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.botao-confirmar {
+  background-color: #ef4444;
+  color: #ffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.botao-cancelar {
+  background-color: #ccc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* FIM MODAL CONFIRMAR EXCLUSÃO */
+
+/* VALIDAÇÃO FORMULÁRIOS */
+
+.msg-erro {
+  color: #ef4444;
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  min-height: 1rem;
+}
+
+input.campo-erro {
+  border: 1px solid #ef4444;
+}
+
+input[readonly],
+input[disabled] {
+  background-color: #f1f5f9;
+  color: #64748b;
+  cursor: not-allowed;
+  border: 1px solid #e2e8f0;
+  outline: none;
+  box-shadow: none;
+}
+
+input[readonly] {
+  background-color: #f8fafc;
+  cursor: default;
+}
+
+/* FIM */
+
+/* MENSAGENS DE AÇÃO */
+
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #10b981;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1000;
+  right: 30px;
+  bottom: 30px;
+  font-size: 17px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#toast.show {
+  visibility: visible;
+  animation:
+    fadein 0.5s,
+    fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    right: 0;
+    opacity: 0;
+  }
+  to {
+    right: 30px;
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    right: 30px;
+    opacity: 1;
+  }
+  to {
+    right: 0;
+    opacity: 0;
+  }
+}
+
+/* FIM */

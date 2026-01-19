@@ -1,0 +1,31 @@
+### --- Configurações Locais (Segurança) ---
+# Arquivo com senhas do banco de dados
+src/main/resources/db.properties
+
+### --- Java / Maven ---
+target/
+*.class
+*.war
+*.ear
+*.jar
+
+### --- IDEs (Eclipse / IntelliJ / VS Code) ---
+.settings/
+.project
+.classpath
+.factorypath
+bin/
+.idea/
+*.iml
+.vscode/
+.metadata/
+RemoteSystemsTempFiles/
+
+### --- Logs e Temporários ---
+*.log
+temp/
+tmp/
+
+### --- SO (Arquivos do Sistema Operacional) ---
+.DS_Store
+Thumbs.db
