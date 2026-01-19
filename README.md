@@ -43,12 +43,13 @@ Este projeto foi construído como **exercício prático e peça de portfólio**,
 * [x] **Desativação de Usuários (Soft Delete):** Exclusão lógica via procedure, preservando histórico.
 * [x] **Validações no Frontend:** Validações em JavaScript puro, sem uso de `alert`, com feedback visual.
 * [x] **Confirmação de Exclusão:** Modal customizado para evitar ações destrutivas acidentais.
+* [x] **Segurança:** Autenticação protegida por Hash SHA-256 executado diretamente no banco de dados via Procedure.
 
 ---
 
 ## 📸 Demonstração da Interface
 
-[screen-capture.webm](https://github.com/user-attachments/assets/894f0422-10bd-45fa-ba7c-aeb5aa87f488)
+[screen-capture.webm](https://github.com/user-attachments/assets/1ceb383e-6c1e-4144-8c82-1d2a85d48226)
 
 ---
 
@@ -59,6 +60,7 @@ Este projeto foi construído como **exercício prático e peça de portfólio**,
   * Regras de negócio implementadas com **Stored Procedures e Triggers**.
   * Scripts organizados na pasta `/sql`.
   * Controle automático de datas de criação e atualização.
+  * Segurança de Dados: Uso de HASHBYTES para proteção de credenciais, garantindo que senhas nunca sejam armazenadas em texto pleno.
 
 * **Camada Java**
 
@@ -74,14 +76,14 @@ Este projeto foi construído como **exercício prático e peça de portfólio**,
 
 ---
 
-## 🔮 Evoluções Planejadas
+## 🔮 Evoluções Finalizadas
 
-Este projeto será evoluído incrementalmente, sem alterar sua proposta inicial:
+Este projeto **foi** evoluído incrementalmente, sem alterar sua proposta inicial:
 
-* [ ] Implementação de **DAO Factory** para abstrair criação de DAOs e injeção de conexão.
-* [ ] Tela de **Login** com controle de sessão.
-* [ ] Autorização baseada no campo `eh_admin`.
-* [ ] Melhoria na organização de pacotes.
+* [x] Implementação de **DAO Factory** para abstrair criação de DAOs e injeção de conexão.
+* [x] Tela de **Login** com controle de sessão.
+* [x] Autorização baseada no campo `eh_admin`.
+* [x] Melhoria na organização de pacotes.
 
 Essas evoluções representam **crescimento do sistema**, não correção de falhas.
 
