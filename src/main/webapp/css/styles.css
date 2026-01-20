@@ -291,7 +291,6 @@ input[readonly] {
 #toast {
   visibility: hidden;
   min-width: 250px;
-  background-color: #10b981;
   color: #fff;
   text-align: center;
   border-radius: 5px;
@@ -304,11 +303,14 @@ input[readonly] {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+#toast.sucesso { background-color: #10b981; }
+#toast.erro { background-color: #ef4444; }
+
 #toast.show {
   visibility: visible;
   animation:
-    fadein 0.5s,
-    fadeout 0.5s 2.5s;
+    fadein 0.5s forwards,
+    fadeout 0.5s 2.5s forwards;
 }
 
 @keyframes fadein {

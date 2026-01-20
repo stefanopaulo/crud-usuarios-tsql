@@ -38,12 +38,14 @@ Este projeto foi construído como **exercício prático e peça de portfólio**,
 ## 🚀 Funcionalidades
 
 * [x] **Cadastro de Usuários:** Inclusão de novos usuários com validações de negócio centralizadas no banco de dados.
-* [x] **Listagem de Usuários Ativos:** Consulta utilizando *View* para exibição de dados formatados.
+* [x] **Listagem de Usuários Ativos:** Consulta utilizando View para exibição de dados formatados.
 * [x] **Edição de Usuários:** Atualização de dados com controle de integridade (e-mail único).
 * [x] **Desativação de Usuários (Soft Delete):** Exclusão lógica via procedure, preservando histórico.
-* [x] **Validações no Frontend:** Validações em JavaScript puro, sem uso de `alert`, com feedback visual.
 * [x] **Confirmação de Exclusão:** Modal customizado para evitar ações destrutivas acidentais.
-* [x] **Segurança:** Autenticação protegida por Hash SHA-256 executado diretamente no banco de dados via Procedure.
+* [x] **Segurança e Proteção de Rotas (Middleware):** Implementação de Filter para interceptar requisições, garantindo que usuários não autenticados não acessem páginas internas via URL.
+* [x] **Controle de Autorização (RBAC):** Restrição de funcionalidades críticas (Cadastro, Edição, Exclusão) exclusivamente para usuários com perfil de Administrador.
+* [x] **Criptografia:** Autenticação protegida por Hash SHA-256 executado diretamente no banco de dados via Procedure.
+* [x] **Experiência do Usuário (UX):** Notificações dinâmicas (Toast) com cores distintas para sucesso e erro, além de modal customizado para confirmação de exclusão.
 
 ---
 
