@@ -93,28 +93,48 @@ Essas evoluções representam **crescimento do sistema**, não correção de fal
 
 ## ⚙️ Como executar o projeto
 
-Este é um **Dynamic Web Project** desenvolvido no Eclipse.
-
 1. **Clone o repositório:**
 
    ```bash
    git clone https://github.com/stefanopaulo/crud-usuarios-tsql.git
    ```
 
-2. **Importe no Eclipse:**
+2.  **Build do projeto com Maven:**
+    - Na raiz do projeto, execute:
 
-   * `File > Import > General > Existing Projects into Workspace`
-   * Selecione a pasta do projeto.
+    ```bash
+    mvn clean package
+    ```
 
 3. **Banco de Dados:**
 
-   * Execute os scripts disponíveis na pasta `/sql`.
-   * Ajuste usuário, senha e URL de conexão conforme seu ambiente, na fábrica de conexões.
+    - Execute os scripts SQL disponíveis na pasta `/sql` (criação das procedures).
+    - Crie um arquivo chamado `db.properties` no diretório:
+      ```
+      src/main/resources
+      ```
+    - Exemplo de configuração (utilize valores compatíveis com seu ambiente local):
+      ```properties
+      driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url=jdbc:sqlserver://localhost:1433;databaseName=[seu_banco_aqui];encrypt=false;trustServerCertificate=true;
+      user=[seu_usuario]
+      password=[sua_senha]
+      ```
+    - A aplicação carrega automaticamente essas configurações no momento da conexão com o banco de dados.
 
-4. **Servidor:**
+4. **Deploy no Tomcat:**
 
-   * Execute o projeto em um servidor **Apache Tomcat**.
-   * Acesse via navegador: `http://localhost:8080/crud-usuarios-tsql
+    - Copie o arquivo .war gerado para a pasta webapps do Tomcat
+
+   ou
+
+    - Configure o projeto em uma IDE de sua preferência utilizando um servidor Tomcat.
+    - Inicie o Tomcat
+
+5. **Acesse à aplicação:**
+
+    - Acesse no navegador: `http://localhost:8080/crud-usuarios-tsql`
+
 
 ---
 
